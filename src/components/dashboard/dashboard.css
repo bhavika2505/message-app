@@ -1,0 +1,247 @@
+/* dashboard.css */
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Prevents the dashboard from overflowing the viewport height */
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #4ed1f0, #9039d6);
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .navbar-left, .navbar-right button {
+    color: black;
+    background-color: #4ed1f0;
+  }
+  
+  .chat-component{
+    width: -webkit-fill-available;
+  }
+  .content {
+    display: flex;
+    height: calc(100% - 50px); /* Adjust the height to account for the navbar */
+    overflow: hidden; /* This ensures the content doesn't overflow */
+  }
+  
+  .user-list {
+    flex: 1; /* Allows the user list to fill the space dynamically */
+    background-color: #EDEDED;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .user-list h2 {
+    padding: 20px;
+    margin: 0;
+    background-color: #F6F6F6;
+    border-bottom: 1px solid #DDD;
+  }
+  
+  .user-list ul {
+    list-style: none;
+    background: linear-gradient(to right, #4ed1f0, #c8a8e2);
+    padding: 0;
+    margin: 0;
+  }
+  
+  .user-list li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #DDD;
+    cursor: pointer;
+  }
+  
+  .user-list li:hover {
+    background-color: #F0F0F0;
+  }
+  
+  .message-area {
+    flex: 4; /* Gives the message area more space */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    background-color: #eaeaea;
+    overflow-y: auto; /* Allows scrolling for overflowed content */
+  }
+  
+  .message-area div {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+
+  
+  .navbar-right button {
+    background-color: #4ed1f0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .navbar-right button:hover {
+    background-color: #1c90aa;
+  }
+
+  .chat-header{
+    width: -webkit-fill-available;
+    background-color: #6F85E3;
+  }
+  
+  .message-sent{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 18px;
+    padding: 10px 15px;
+    max-width: max-content;
+    width: auto;
+    word-break: break-word; /* Prevents long text from overflowing */
+  }
+
+
+  .message-received {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 18px;
+    padding: 10px;
+    max-width: max-content;
+    width: auto;
+    word-break: break-word; /* Prevents long text from overflowing */
+  }
+  
+  .message-sent {
+    margin-left: auto;
+    background-color: #4ed1f0; /* Light green background for sent messages */
+    justify-content: flex-end;
+    text-align: right;
+  }
+  
+  .message-received {
+    margin-right: auto;
+    background-color: white; /* White background for received messages */
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .message-input input {
+    width: 100%; 
+    border-radius: 8px
+  }
+  
+  .send-btn button{
+    
+  }
+  .initial-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50% !important;
+    background-color: #EDEDED !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 14px; /* Make sure this is appropriate for the circle size */
+    color: black;
+    font-weight: bold;
+    margin-right: 10px !important; /* For message-received */
+    margin-left: 10px; /* For message-sent if you want space when the circle is not hidden */
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; /* This removes the default list item markers */
+  }
+  
+  
+  /* Additional styles for message text and time */
+  .message-text {
+    flex-grow: 1;
+  }
+  
+  .message-time {
+    font-size: 0.75rem;
+    margin-left: 12px;
+    color: #999;
+  }
+  
+  /* Hide initial circle when it's a sent message */
+  .hidden {
+    display: none !important; /* Use !important to ensure it overrides any other display property */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+    }
+  
+    .user-list, .message-area {
+      width: 100%;
+      flex: none; /* Resets the flex setting */
+    }
+  
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .navbar-right {
+      align-self: flex-end;
+      margin-top: 10px;
+    }
+  }
+  
+  @media (max-height: 500px) {
+    .navbar, .user-list, .message-area {
+      padding: 5px;
+    }
+  
+    .user-list h2, .user-list li {
+      padding: 8px 10px;
+    }
+  
+    .message-area div {
+      padding: 5px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar, .message-area div, .user-list h2, .message-text {
+      font-size: 0.9rem; /* Adjust font size for better readability on small screens */
+    }
+
+    .chat-component{
+      width: 80%;
+    }
+  
+    .message-input input, .navbar-right button {
+      padding: 8px 16px; /* Adjust padding for easier interaction on touch devices */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar, .message-area div, .user-list h2, .message-text {
+      font-size: 0.8rem; /* Further reduce font size for very small screens */
+    }
+
+    .chat-component{
+      width: 80%;
+    }
+  
+    .message-input input, .navbar-right button {
+      padding: 6px 12px; /* Further adjust padding for smaller screens */
+    }
+  }
